@@ -4,6 +4,7 @@
 # Version only the hand-authored configuration.
 !/.gitignore
 !/AGENTS.md
+!/README.md
 !/skills/
 
 # Exclude Codex-bundled skills.
