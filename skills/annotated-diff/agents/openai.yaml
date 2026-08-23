@@ -1,0 +1,4 @@
+interface:
+  display_name: "Annotated Diff"
+  short_description: "Create and maintain explanatory Git diff documents"
+  default_prompt: "Use $annotated-diff to create or update an annotated Markdown diff for my current changes."

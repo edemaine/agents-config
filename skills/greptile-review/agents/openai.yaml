@@ -1,0 +1,4 @@
+interface:
+  display_name: "Greptile Review"
+  short_description: "Run and inspect Greptile CLI reviews"
+  default_prompt: "Use $greptile-review to review the current repository with Greptile."

@@ -1,0 +1,7 @@
+interface:
+  display_name: "Proofread"
+  short_description: "Proofread papers"
+  default_prompt: "Use $proofread to proofread this paper."
+
+policy:
+  allow_implicit_invocation: false

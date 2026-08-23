@@ -1,0 +1,10 @@
+# Ignore Codex runtime state by default.
+/*
+
+# Version only the hand-authored configuration.
+!/.gitignore
+!/AGENTS.md
+!/skills/
+
+# Exclude Codex-bundled skills.
+/skills/.system/
