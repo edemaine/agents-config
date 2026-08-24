@@ -31,5 +31,4 @@ git restore .
 git branch --set-upstream-to=origin/main main
 
 git status
-git diff
 ```
