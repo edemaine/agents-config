@@ -30,7 +30,8 @@ Operators need consistent spacing: `x + y` and `x +y` mean different things. Use
 * `foo == null` → `not foo?`.
 * `T | undefined` → `T?`.
 * `x.length` → `x#`.
-* `typeof x is "foo"` → `x <? "foo"`.
+* `typeof x === "foo"` → `x <? "foo"`.
+* `typeof x !== "foo"` → `x !<? "foo"`.
 * `this.x` → `@x`.
 * `this` → `@`.
 * Statements generally don't need leading/trailing `;`. Check implicit returns before removing trailing semicolons.
