@@ -1,19 +1,24 @@
 ---
 name: civetify
-description: Clean up existing Civet code into idiomatic Civet, including removing esCompat when requested, while checking emitted TypeScript for behavioral changes. Use for Civet style passes and syntax simplification, not CoffeeScript migration or unrelated feature work.
+description: Port JavaScript/TypeScript to idiomatic Civet or clean up existing Civet, including removing esCompat when requested, while checking compiled output for behavioral and type changes. Use for JS/TS-to-Civet conversion, Civet style passes, and syntax simplification, not CoffeeScript migration or unrelated feature work.
 ---
 
 # Civetify
 
 Apply Civet shorthand without changing meaning. Work through the rules in turn; search beyond the user's example when the request is a general cleanup. Use the project's installed compiler.
 
-Compile and check proposed changes **before applying them to project files**. Compare emitted TypeScript ASTs, especially when removing parentheses. Keep a baseline so the final comparison covers the combined edits.
+Compile and check proposed changes **before applying them to project files**. Compare compiled ASTs, preserving types for TypeScript/Civet inputs, especially when removing parentheses. Keep a baseline so the final comparison covers the combined edits.
 
 ## Compatibility and parsing
 
-When removing `esCompat`, first compile the original with its original directive/options. Remove the flag in a candidate, inspect the emitted differences, and fix the syntax before applying it. Don't assume removing the flag preserves JS/TS parsing. Check the installed compiler against [Civet's comparison](https://civet.dev/comparison), particularly single-argument arrows, implicit returns, operator spacing, indentation, braced blocks, and semicolons.
-
-Operators need consistent spacing: `x + y` and `x +y` mean different things. Use small compiler probes instead of guessing.
+* When porting JS/TS, keep the original `.js`/`.jsx`/`.ts`/`.tsx` snapshot and create a `.civet` candidate. Compare them directly with this skill's `compare-ast.cjs`; the extensions select JavaScript comparison or type-preserving TypeScript comparison.
+  * Inspect compilation differences and adjust syntax before applying the candidate. An initial `"civet esCompat"` directive can help stage the conversion, but check that intermediate result too; the flag doesn't guarantee equivalence. Remove it as part of producing idiomatic Civet.
+  * Preserve exports, module behavior, types, and source comments. Update source references and build configuration as needed, then run the project's build, typecheck, and suitable tests.
+* When asked to remove `esCompat` or `coffeeCompat` or other compatibility flags from existing Civet, first compile the original with its original directive/options. Remove the flag in a candidate, inspect the emitted differences, and fix the syntax before applying it.
+* In either case, don't assume JS/TS syntax has the same meaning in native Civet. Check the installed compiler against [Civet's comparison](https://civet.dev/comparison), particularly single-argument arrows, implicit returns, operator spacing, indentation, braced blocks, and semicolons.
+  * Use small compiler probes instead of guessing about parsing.
+  * Operators need consistent spacing: `x + y` and `x +y` mean different things.
+  * In native Civet, `x => x + 1` is an implicit call to `x` with a zero-argument arrow, not a single-argument arrow. Use `(x) => x + 1` for the latter.
 
 ## Declarations and expressions
 
