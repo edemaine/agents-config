@@ -14,6 +14,8 @@ This is a portion of Erik Demaine's `.codex` directory.
 This repository includes personal skills for:
 
 - [Annotated diffs](skills/annotated-diff/) for code review.
+- [Civetify](skills/civetify/) for idiomatic Civet cleanup.
+- [CoffeeScript to Civet](skills/coffeescript-to-civet/) for source migration.
 - [Greptile CLI reviews](skills/greptile-review/).
 - [Proofreading papers](skills/proofread/).
 
