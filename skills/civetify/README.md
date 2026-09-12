@@ -10,4 +10,4 @@ Example requests:
 - "Use $civetify to port src/example.ts to Civet."
 - "Use $civetify to remove esCompat and clean up the Civet syntax in src/."
 
-For CoffeeScript migration, use [coffeescript-to-civet](https://github.com/edemaine/agents-config/tree/main/skills/coffeescript-to-civet). See [SKILL.md](SKILL.md) for the style rules and verification workflow.
+For CoffeeScript migration or removing CoffeeScript compatibility flags from Civet, use [coffeescript-to-civet](https://github.com/edemaine/agents-config/tree/main/skills/coffeescript-to-civet). See [SKILL.md](SKILL.md) for the style rules and verification workflow.

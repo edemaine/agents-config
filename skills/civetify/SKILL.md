@@ -1,6 +1,6 @@
 ---
 name: civetify
-description: Port JavaScript/TypeScript to idiomatic Civet or clean up existing Civet, including removing esCompat when requested, while checking compiled output for behavioral and type changes. Use for JS/TS-to-Civet conversion, Civet style passes, and syntax simplification, not CoffeeScript migration or unrelated feature work.
+description: Port JavaScript/TypeScript to idiomatic Civet or clean up existing Civet, including removing esCompat when requested, while checking compiled output for behavioral and type changes. Use for JS/TS-to-Civet conversion, Civet style passes, and syntax simplification, not CoffeeScript migration, removing CoffeeScript compatibility modes, or unrelated feature work.
 ---
 
 # Civetify
@@ -10,6 +10,8 @@ Apply Civet shorthand without changing meaning. Work through the rules in turn; 
 Compile and check proposed changes **before applying them to project files**. Compare compiled ASTs, preserving types for TypeScript/Civet inputs, especially when removing parentheses. Keep a baseline so the final comparison covers the combined edits.
 
 ## Compatibility and parsing
+
+For CoffeeScript migration or removing `coffeeCompat`/`coffee-compat` or individual CoffeeScript modes, use **coffeescript-to-civet**. Return here for native Civet style cleanup.
 
 * When porting JS/TS, keep the original `.js`/`.jsx`/`.ts`/`.tsx` snapshot and create a `.civet` candidate. Compare them directly with this skill's `compare-ast.cjs`; the extensions select JavaScript comparison or type-preserving TypeScript comparison.
   * Inspect compilation differences and adjust syntax before applying the candidate. An initial `"civet esCompat"` directive can help stage the conversion, but check that intermediate result too; the flag doesn't guarantee equivalence. Remove it as part of producing idiomatic Civet.

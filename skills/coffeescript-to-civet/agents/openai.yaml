@@ -1,4 +1,4 @@
 interface:
   display_name: "CoffeeScript to Civet"
-  short_description: "Convert CoffeeScript to behavior-preserving Civet"
-  default_prompt: "Use $coffeescript-to-civet to migrate these CoffeeScript files to native Civet without changing runtime behavior."
+  short_description: "Migrate CoffeeScript or remove Civet coffee compatibility"
+  default_prompt: "Use $coffeescript-to-civet to migrate CoffeeScript or remove CoffeeScript compatibility modes from Civet while preserving behavior and existing types."
