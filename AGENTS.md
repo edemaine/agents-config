@@ -15,6 +15,11 @@ For example:
 * Do not `git push`.
 * Do not write/edit GitHub posts. When I ask for posts, I usually want draft text that I can revise and submit myself.
 
+## GitHub
+
+When working on an existing PR from a fork, configure and verify that both
+`@{upstream}` and `@{push}` point to the PR's actual head repository and branch.
+
 ## Writing
 
 When drafting user-facing prose:
