@@ -17,6 +17,7 @@ This repository includes personal skills for:
 - [Civetify](skills/civetify/) for idiomatic Civet cleanup.
 - [CoffeeScript to Civet](skills/coffeescript-to-civet/) for source migration.
 - [Greptile CLI reviews](skills/greptile-review/).
+- [Lean abstract](skills/lean-abstract/) for readable main results with minimal definitions and bridge proofs.
 - [Proofreading papers](skills/proofread/).
 
 ## Bootstrap an existing `.codex` directory

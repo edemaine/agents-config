@@ -1,0 +1,4 @@
+interface:
+  display_name: "Lean abstract"
+  short_description: "Readable Lean results with minimal definitions"
+  default_prompt: "Use $lean-abstract to write a minimal Abstract.lean of the main results, proved through AbstractBridge.lean."
