@@ -11,6 +11,8 @@ Write the formal equivalent of a paper abstract: a short file whose mathematical
 
 Inspect the main theorem statements, their hypotheses, and the repository's build and axiom-checking conventions. Identify only the concepts needed to state the requested results. The abstract may use simpler representations, provided the bridge proves the correspondence without weakening or strengthening the intended claims.
 
+Outside references are allowed only in proofs. Every reference in a public definition, type, or theorem statement must resolve to a declaration within the abstract suite or an accepted background library, such as Mathlib. This requirement applies transitively: an alias or wrapper around an implementation declaration does not make it internal.
+
 - Give each concept one canonical public definition. Avoid alternative equivalent predicates, duplicate theorem formulations, and separate encoded and unencoded versions unless the requested results need them.
 - Prefer ordinary functions, quantifiers, membership, and equalities over custom interfaces, dependent records, or implementation-specific machinery. State constraints on a function explicitly when this is clearer than packaging values and proofs into subtypes.
 - For more than two homogeneous components, prefer `Fin n → α` over nested cross products. Give the index type a short descriptive alias and name meaningful indices. Group the index alias, index names, and object alias in one block. For example, `Direction := Fin 4`, indices `n/s/e/w`, and `Tile := Direction → ℕ` let a reader write `t n` instead of tuple projections.
@@ -43,6 +45,8 @@ Start each conceptual code block's comment with a human mathematical definition 
 The module introduction should briefly identify the abstract's purpose, definitions, main results, and bridge. Explain that, to check whether the formalization proves the intended main results, the reader only needs to check this file's definitions and theorem statements; Lean verifies the proofs through the bridge and the rest of the project. Follow the repository's comment and header conventions. If updating the README is in scope, describe the same role and division between reader and Lean, link both files, and identify the import and build command without repeating the mathematical exposition.
 
 ## Verify and integrate
+
+Audit the dependencies of public definitions, types, and theorem statements transitively, following aliases and wrappers. Check inferred types and instances as well as written names for hidden implementation references.
 
 Compile the abstract and bridge, checking that the short public proofs establish exactly the displayed statements. Include the abstract in the default build, following existing target and import conventions. If the repository has an axiom audit, add the new main theorems so unfinished proofs and unexpected assumptions are caught there too. Report the checks actually completed and any remaining limitations; do not claim that a full build passed based only on a targeted build.
 
