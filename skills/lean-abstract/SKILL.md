@@ -13,6 +13,7 @@ Inspect the main theorem statements, their hypotheses, and the repository's buil
 
 Outside references are allowed only in proofs. Every reference in a public definition, type, or theorem statement must resolve to a declaration within the abstract suite or an accepted background library, such as Mathlib. This requirement applies transitively: an alias or wrapper around an implementation declaration does not make it internal.
 
+- Avoid `open` in the public abstract; use explicit namespace prefixes so readers can distinguish abstract definitions from accepted background libraries, such as Mathlib. Namespace openings may be used locally inside proofs or in the bridge.
 - Give each concept one canonical public definition. Avoid alternative equivalent predicates, duplicate theorem formulations, and separate encoded and unencoded versions unless the requested results need them.
 - Prefer ordinary functions, quantifiers, membership, and equalities over custom interfaces, dependent records, or implementation-specific machinery. State constraints on a function explicitly when this is clearer than packaging values and proofs into subtypes.
 - For more than two homogeneous components, prefer `Fin n → α` over nested cross products. Give the index type a short descriptive alias and name meaningful indices. Group the index alias, index names, and object alias in one block. For example, `Direction := Fin 4`, indices `n/s/e/w`, and `Tile := Direction → ℕ` let a reader write `t n` instead of tuple projections.
