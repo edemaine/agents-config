@@ -17,9 +17,9 @@ not the surrounding conversation. Explain both what changed and why.
 - Include committed changes after the base plus staged and unstaged tracked
   changes. Ignore untracked files by default, but report their paths as omitted
   so the user can decide whether they belong in scope. Include one only when the
-  user requests it or the specified scope clearly includes it. Exclude the
-  annotated-diff document itself from its inventory unless the user explicitly
-  asks to document that file too.
+  user requests it or the specified scope clearly includes it, e.g., because
+  it was created in the current conversation. Exclude the annotated-diff
+  document itself from its inventory.
 - Read repository instructions and any existing annotated-diff document before
   editing. Preserve useful prose, organization, and user edits when updating.
 - This skill authorizes creating or updating the requested documentation, not
@@ -78,6 +78,8 @@ must remain faithful to the actual before and after code.
 - Include enough unchanged context to identify the declaration, rule, or call
   site. Use `...` only to mark omitted unchanged context, never to conceal an
   unexplained changed line.
+- Every changed line should be represented by a diff block; exposition does
+  not suffice.
 - Pair independent one-line replacements as `-`, `+`, `-`, `+` when raw Git
   output groups them as `-`, `-`, `+`, `+`. This is especially useful for
   parallel field or type edits:
